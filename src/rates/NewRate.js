@@ -19,7 +19,7 @@ function NewRate(){
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post("http://localhost:1337/api/exchangeRate/createOrUpdate", {src, trg}).then(r => {
+        axios.post("https://exchange-rate-back.herokuapp.com/api/exchangeRate/createOrUpdate", {src, trg}).then(r => {
             setSource("")
             setTarget("")
             setShowAlert(true)
