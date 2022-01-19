@@ -10,11 +10,11 @@ function NewRate(){
 
 
     const handleChangeSource = e => {
-        setSource(e.target.value);
+        setSource(e.target.value.toUpperCase());
       };
 
     const handleChangeTarget = e => {
-        setTarget(e.target.value);
+        setTarget(e.target.value.toUpperCase());
     };
 
     const handleSubmit = e => {
