@@ -2,7 +2,7 @@ import { Card, Grid, CardContent, Typography } from '@mui/material';
 import axios from 'axios';
 import React,{useEffect, useState} from 'react';
 
-function AllRates(){
+const AllRates = () => {
     const [rates,setRates] = useState([])
     const [showRates,setShow] = useState(false);
     console.log()

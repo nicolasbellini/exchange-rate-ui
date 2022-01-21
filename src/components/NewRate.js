@@ -2,7 +2,7 @@ import { Alert, Box, Button, TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import React,{useState} from 'react';
 
-function NewRate(){
+const NewRate = () => {
     const [src,setSource] = useState([''])
     const [trg,setTarget] = useState([''])
     const [showAlert, setShowAlert] = useState(null);

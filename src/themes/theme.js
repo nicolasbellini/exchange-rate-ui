@@ -1,21 +1,18 @@
-import { createTheme } from "@mui/material";
+import { createTheme, makeStyles } from "@mui/material";
 import { blue, green } from "@mui/material/colors";
 import { border } from "@mui/system";
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: green
-        }
+const useStyles = makeStyles({
+    root: {
+      background: 'green',
+      border: 0,
+      borderRadius: 3,
+      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+      color: 'white',
+      height: 48,
+      padding: '0 30px',
     },
-
-    navBar: {
-        backgroundColor: "red",
-        color: "white",
-        border: "1px solid black"
-    }
-
   });
 
 
-  export default theme
+  export default useStyles
