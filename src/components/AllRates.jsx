@@ -1,8 +1,8 @@
 import { Card, Grid, CardContent, Typography, Container } from '@mui/material';
 import axios from 'axios';
 import React,{useEffect, useState} from 'react';
-import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import { Box, minWidth } from '@mui/system';
+import RateCard from './RateCard';
+
 
 const AllRates = () => {
     const [rates,setRates] = useState([])
@@ -28,38 +28,7 @@ const AllRates = () => {
             {
               showRates && rates.map(rate => 
               <Grid item>     
-                <Card sx={{ bgcolor: 'text.disabled' }}>
-                  <Box paddingX={5}>
-                    <CardContent>
-
-                        <Box sx={{display: "flex", alignItems:"center"}}> 
-                          <AttachMoneyIcon color='green' style={{ width: 20 }}/>
-                          <Typography variant='body1' color="green" marginLeft={-0.7}>
-                           {rate.source}
-                          </Typography>
-                        </Box>
-
-                        <Box>
-                          <Typography all sx={{ fontSize: 12 }} color="text.secondary" >
-                            to
-                          </Typography>
-                        </Box>
-
-                        <Box>
-                          <Typography sx={{ fontSize: 14 }} color="blue" >
-                            {rate.target}
-                          </Typography>
-                        </Box>
-
-                        <Box>
-                          <Typography sx={{ fontSize: 14 }} color="text.secondary">
-                            {rate.rate}
-                          </Typography>
-                        </Box>
-
-                    </CardContent>
-                  </Box>
-                </Card> 
+                <RateCard source= {rate.source} target = {rate.target} rate ={rate.rate}/>
               </Grid>
               )
             }

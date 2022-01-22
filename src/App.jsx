@@ -1,9 +1,7 @@
 import { Container, Grid } from '@mui/material';
-import AllRates from "./components/AllRates";
-import NavBar from './components/NavBar';
-import NewRate from './components/NewRate';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import FullWidthTabs from './components/NavBar';
+import NavBar from './components/NavBar';
+import RateCard from './components/RateCard';
 
 const App = () => {
   
@@ -11,7 +9,7 @@ const App = () => {
     <Router>
       <div>
         <Routes>
-          <Route path="/" element={<Container><FullWidthTabs/></Container>}/>
+          <Route path="/" element={<Container><NavBar/></Container>}/>
         </Routes>
       </div>
     </Router>
