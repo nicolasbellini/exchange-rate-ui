@@ -1,19 +1,19 @@
 import { Container, Grid } from '@mui/material';
 import AllRates from "./components/AllRates";
-import LeftBar from './components/LeftBar';
-import ResponsiveAppBar from './components/NavBar';
+import NavBar from './components/NavBar';
 import NewRate from './components/NewRate';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 const App = () => {
   
     return(
-    <div>
-      <ResponsiveAppBar></ResponsiveAppBar>
-        <Grid Container>
-          <NewRate/>
-          <AllRates/>
-        </Grid>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route path="/" element={<NavBar/>}/>
+        </Routes>
+      </div>
+    </Router>
     );
 };
 

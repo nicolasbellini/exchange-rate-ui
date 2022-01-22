@@ -1,6 +1,8 @@
-import { Card, Grid, CardContent, Typography } from '@mui/material';
+import { Card, Grid, CardContent, Typography, Container } from '@mui/material';
 import axios from 'axios';
 import React,{useEffect, useState} from 'react';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import { Box, minWidth } from '@mui/system';
 
 const AllRates = () => {
     const [rates,setRates] = useState([])
@@ -22,29 +24,47 @@ const AllRates = () => {
 
     return(
         <>
-        <Typography variant='h2' component="div">
+        <Typography variant='h2'>
           All saved rates
         </Typography>
-        <Grid container spacing={1} justify="center">
+        <Grid container spacing={2} >
             {
-                showRates && rates.map(rate => <Grid item>     <Card sx={{ minWidth: 275 }}>
-                    <CardContent sx={{ bgcolor: 'text.disabled' }}>
-                      <Typography variant="h5" component="div">
-                      </Typography>
-                      <Typography sx={{ fontSize: 14 }} color="green" gutterBottom>
-                        {rate.source}
-                      </Typography>
-                      <Typography sx={{ fontSize: 12 }} color="text.secondary" gutterBottom>
-                        to
-                      </Typography>
-                      <Typography sx={{ fontSize: 14 }} color="blue" gutterBottom>
-                        {rate.target}
-                      </Typography>
-                      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        {rate.rate}
-                      </Typography>
+              showRates && rates.map(rate => 
+              <Grid item>     
+                <Card sx={{ bgcolor: 'text.disabled' }}>
+                  <Box paddingX={5}>
+                    <CardContent>
+
+                        <Box sx={{display: "flex", alignItems:"center"}}> 
+                          <AttachMoneyIcon color='green' style={{ width: 20 }}/>
+                          <Typography variant='body1' color="green" marginLeft={-0.7}>
+                           {rate.source}
+                          </Typography>
+                        </Box>
+
+                        <Box>
+                          <Typography all sx={{ fontSize: 12 }} color="text.secondary" >
+                            to
+                          </Typography>
+                        </Box>
+
+                        <Box>
+                          <Typography sx={{ fontSize: 14 }} color="blue" >
+                            {rate.target}
+                          </Typography>
+                        </Box>
+
+                        <Box>
+                          <Typography sx={{ fontSize: 14 }} color="text.secondary">
+                            {rate.rate}
+                          </Typography>
+                        </Box>
+
                     </CardContent>
-                  </Card> </Grid>)
+                  </Box>
+                </Card> 
+              </Grid>
+              )
             }
         </Grid>
         </>
