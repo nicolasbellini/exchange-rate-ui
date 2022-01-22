@@ -1,4 +1,4 @@
-import { Alert, Box, Button, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, Container, Grid, TextField, Typography } from '@mui/material';
 import axios from 'axios';
 import React,{useState} from 'react';
 
@@ -23,7 +23,6 @@ const NewRate = () => {
             setSource("")
             setTarget("")
             setShowAlert(true)
-            window.location.reload(false);
         }).catch(reason => {
             setSource("")
             setTarget("")
@@ -33,9 +32,13 @@ const NewRate = () => {
 
     return(
         <>
-        <Typography variant='h2'>
-            Save a new rate
-        </Typography>
+        <Grid container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            style={{ minHeight: '100vh' }}
+            >
+
         <Box component="form"
             sx={{
                 '& .MuiTextField-root': { m: 1, width: '25ch' },
@@ -45,12 +48,20 @@ const NewRate = () => {
             >
             <TextField label="SOURCE" focused  onChange={handleChangeSource}/>
             <TextField label="TARGET" focused  onChange={handleChangeTarget}/>
-            <Button variant="contained" color="primary" onClick={handleSubmit}>
-                Submit
-            </Button>
             {showAlert && <Alert severity="success" onClose={() => {setShowAlert(false)}}>Rate succesfully added!</Alert>}
             {showAlert404 && <Alert severity="error" onClose={() => {setShowAlert404(false)}}>That rate does not exist!</Alert>}
         </Box>
+        <Grid container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            style={{ minHeight: '100vh' }}
+            >
+            <Button variant="contained" color="primary" onClick={handleSubmit}>
+                Submit
+            </Button>
+        </Grid>
+        </Grid>
         </>
     )
 

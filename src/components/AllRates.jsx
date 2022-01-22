@@ -24,9 +24,6 @@ const AllRates = () => {
 
     return(
         <>
-        <Typography variant='h2'>
-          All saved rates
-        </Typography>
         <Grid container spacing={2} >
             {
               showRates && rates.map(rate => 
