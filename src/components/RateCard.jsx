@@ -13,7 +13,7 @@ const RateCard = ({source, target, rate}) => {
             {target}
           </Typography>
           <Typography variant="h5" component="h2">
-            {rate}
+            {rate.toFixed(3)}
           </Typography>
         </CardContent>
         <CardActions>
