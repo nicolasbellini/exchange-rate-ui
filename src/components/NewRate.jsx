@@ -46,19 +46,22 @@ const NewRate = () => {
 
     return(
         <>
-        {showCurrencies && <Grid container spacing={2} direction="column" alignItems="center" style={{ minHeight: '100vh' }}>
+        {showCurrencies && 
+        <Grid container spacing={3} direction="column" alignItems="center" >
             <Grid item>
                 <Autocomplete id="combo-box" options={currencies} sx={{ width: 300 }}
                      renderInput={(params) => <TextField focused {...params} label="SOURCE" onChange={handleChangeSource}/>}/>
             </Grid>
             <Grid item>
                 <Autocomplete id="combo-box" options={currencies} sx={{ width: 300 }}
-                     renderInput={(params) => <TextField focused {...params} label="SOURCE" onChange={handleChangeSource}/>}/>
+                     renderInput={(params) => <TextField focused {...params} label="TARGET" onChange={handleChangeTarget}/>}/>
             </Grid>
             <Grid item>
-            <Button variant="contained" color="primary" onClick={handleSubmit}>
-                Submit
-            </Button>
+                <Button variant="contained" color="primary" onClick={handleSubmit}>
+                    Submit
+                </Button>
+            </Grid>
+            <Grid item>
             {showAlert && <Alert severity="success" onClose={() => {setShowAlert(false)}}>Rate succesfully added!</Alert>}
             {showAlert404 && <Alert severity="error" onClose={() => {setShowAlert404(false)}}>That rate does not exist!</Alert>}
             </Grid>
