@@ -7,7 +7,6 @@ import RateCard from './RateCard';
 const AllRates = () => {
     const [rates,setRates] = useState([])
     const [showRates,setShow] = useState(false);
-    console.log()
 
     useEffect(()=>{
         getPost()
@@ -15,7 +14,7 @@ const AllRates = () => {
 
 
     const getPost = () =>{
-        axios.get("https://exchange-rate-back.herokuapp.com/api/exchangeRate/getAllRates").then(response=>{
+        axios.get("http://localhost:1337/api/exchangeRate/getAllRates").then(response=>{
             let responseRates = JSON.parse(JSON.stringify(response.data.result))
             setRates(responseRates)
             setShow(true)
@@ -28,7 +27,7 @@ const AllRates = () => {
             {
               showRates && rates.map(rate => 
               <Grid item>     
-                <RateCard source= {rate.source} target = {rate.target} rate ={rate.rate}/>
+                <RateCard src= {rate.source} trg = {rate.target} rate ={rate.rate}/>
               </Grid>
               )
             }
