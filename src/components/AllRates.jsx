@@ -14,7 +14,7 @@ const AllRates = () => {
 
 
     const getPost = () =>{
-        axios.get("http://localhost:1337/api/exchangeRate/getAllRates").then(response=>{
+        axios.get("https://exchange-rate-back.herokuapp.com/api/exchangeRate/getAllRates").then(response=>{
             let responseRates = JSON.parse(JSON.stringify(response.data.result))
             setRates(responseRates)
             setShow(true)

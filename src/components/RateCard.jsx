@@ -7,7 +7,7 @@ import axios from 'axios';
 const RateCard = ({src, trg, rate}) => {
 
     const handleDeleteButton = () =>{
-      axios.delete(`http://localhost:1337/api/exchangeRate/deleteRate/${src}/${trg}`).then((response)=>{
+      axios.delete(`https://exchange-rate-back.herokuapp.com/api/exchangeRate/deleteRate/${src}/${trg}`).then((response)=>{
         window.location.reload(false);
 
       })
